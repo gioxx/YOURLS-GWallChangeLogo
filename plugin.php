@@ -3,7 +3,7 @@
 Plugin Name: GWall Change Logo
 Plugin URI: https://github.com/gioxx/YOURLS-GWallChangeLogo
 Description: Change Yourls Logo
-Version: 1.0
+Version: 1.1
 Author: Gioxx
 Author URI: https://gioxx.org
 */
@@ -52,13 +52,13 @@ function gwall_logo_config_update_option() {
 		$in = strval( $in);
 		yourls_update_option( 'gwall_logo_imageurl', $in );
 	}
-	
+
 	$in_tag = $_POST['gwall_logo_imageurl_tag'];
 	if( $in_tag ) {
 		$in_tag = strval( $in_tag);
 		yourls_update_option( 'gwall_logo_imageurl_tag', $in_tag );
 	}
-	
+
 	$in_title = $_POST['gwall_logo_imageurl_title'];
 	if( $in_title ) {
 		$in_title = strval( $in_title);
@@ -66,8 +66,7 @@ function gwall_logo_config_update_option() {
 	}
 }
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
+// Show custom logo
 yourls_add_filter( 'pre_html_logo', 'gwall_hideoriginallogo' );
 function gwall_hideoriginallogo() {
 	echo '<span id="hideYourlsLogo" style="display:none">';
